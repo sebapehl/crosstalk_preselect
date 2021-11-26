@@ -17,7 +17,7 @@ shared_lw <- SharedData$new(lw)
 ```{r}
 bscols(widths = c(3, NA),
   list(
-    filter_checkbox("dist", "dist", shared_lw, ~dist)
+    filter_checkbox("dist", "dist", shared_lw, ~dist, inline=TRUE)
   ),
   plot_ly(data = shared_lw) %>%
       add_markers(x = ~dist, y = ~speed)
