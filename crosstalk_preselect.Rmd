@@ -26,7 +26,7 @@ bscols(widths = c(3, NA),
 
 ```{js}
 function filter_default() {
-    document.getElementById("dist").getElementsByClassName("selectized")[0].selectize.setValue("2", false);
+    document.getElementById("dist").getElementsByClassName("selectized")[0].selectize.setValue(2, false);
  }
 window.onload = filter_default;
 ```
