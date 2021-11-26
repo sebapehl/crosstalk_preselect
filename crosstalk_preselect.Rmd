@@ -17,7 +17,7 @@ shared_lw <- SharedData$new(lw)
 ```{r}
 bscols(widths = c(3, NA),
   list(
-    filter_checkbox("dist", "dist", shared_lw, ~dist, inline = TRUE)
+    filter_checkbox("dist", "dist", shared_lw, ~dist)
   ),
   plot_ly(data = shared_lw) %>%
       add_markers(x = ~dist, y = ~speed)
@@ -26,7 +26,7 @@ bscols(widths = c(3, NA),
 
 ```{js}
 function filter_default() {
-    document.getElementById("dist").getElementsByClassName("selectized")[0].selectize.setValue(2, false);
+    document.getElementById("dist").getElementsByClassName("selectized")[0].selectize.setValue("24", false);
  }
 window.onload = filter_default;
 ```
