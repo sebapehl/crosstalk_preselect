@@ -1,0 +1,33 @@
+---
+title: "crosstalk preselect"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+library(plotly)
+library(crosstalk)
+library(tidyverse)
+data(cars)
+lw <- cars
+shared_lw <- SharedData$new(lw)
+```
+
+```{r}
+bscols(widths = c(3, NA),
+  list(
+    filter_checkbox("dist", "dist", shared_lw, ~dist, inline = TRUE)
+  ),
+  plot_ly(data = shared_lw) %>%
+      add_markers(x = ~dist, y = ~speed)
+  )  
+```
+
+```{js}
+function filter_default() {
+    document.getElementById("dist").getElementsByClassName("selectized")[0].selectize.setValue("2", false);
+ }
+window.onload = filter_default;
+```
+
